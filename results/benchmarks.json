@@ -1,6 +1,6 @@
 {
     "basic_benchmarks.BasicBenchmark.time_solve_model": {
-        "code": "class BasicBenchmark:\n    def time_solve_model(self):\n        BasicBenchmark.sim.solve([0, 1800])\n\n    def setup(self):\n        self.sim = lp.create_simulation()",
+        "code": "class BasicBenchmark:\n    def time_solve_model(self):\n        BasicBenchmark.sim.solve([0, 1800])\n\n    def setup(self):\n        self.sim = lp.basic_simulation()",
         "min_run_count": 2,
         "name": "basic_benchmarks.BasicBenchmark.time_solve_model",
         "number": 0,
@@ -12,7 +12,7 @@
         "timeout": 60.0,
         "type": "time",
         "unit": "seconds",
-        "version": "311ababa5826813a0c943e1dcd769643cfbf3b37937202150e7341f1a9d153ba",
+        "version": "504d1f6b7a47e6a660b9f73cea8cc8755e90bab404fe1be253da58b7c159f516",
         "warmup_time": -1
     },
     "benchmarks.MemSuite.mem_list": {
