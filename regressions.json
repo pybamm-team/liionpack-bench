@@ -1,1 +1,1 @@
-{"regressions": [["basic_benchmarks.MediumPack.time_discharge_1cpu", "graphs/branch-main/machine-GitHubRunner/python-3.8/basic_benchmarks.MediumPack.time_discharge_1cpu.json", {}, null, 4.498895996999977, 4.140523640999959, [[null, 438, 4.140523640999959, 4.498895996999977]]]]}
+{"regressions": [["basic_benchmarks.MediumPack.time_discharge_1cpu", "graphs/branch-main/machine-GitHubRunner/python-3.8/basic_benchmarks.MediumPack.time_discharge_1cpu.json", {}, null, 4.443302297499997, 4.140523640999959, [[null, 438, 4.140523640999959, 4.443302297499997]]]]}
