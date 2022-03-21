@@ -1,1 +1,1 @@
-{"regressions": [["benchmarks.MediumPack.time_discharge_1cpu", "graphs/branch-main/machine-GitHubRunner/python-3.8/benchmarks.MediumPack.time_discharge_1cpu.json", {}, null, 4.762266844999999, 4.174722806500029, [[null, 569, 4.174722806500029, 4.762266844999999]]]]}
+{"regressions": []}
