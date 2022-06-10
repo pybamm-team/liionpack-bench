@@ -16,7 +16,7 @@
         "warmup_time": -1
     },
     "benchmarks.LargePack.time_discharge_1cpu": {
-        "code": "class LargePack:\n    def time_discharge_1cpu(self):\n        _ = lp.solve(\n            netlist=self.netlist.copy(),\n            parameter_values=self.parameter_values.copy(),\n            experiment=self.experiment,\n            initial_soc=0.5,\n            nproc=1,\n        )\n\n    def setup(self):\n        self.netlist = lp.setup_circuit(Np=64, Ns=10, Rb=1e-4, Rc=1e-2)\n        chemistry = pybamm.parameter_sets.Chen2020\n        self.parameter_values = pybamm.ParameterValues(chemistry=chemistry)\n        self.experiment = pybamm.Experiment(\n            [\n                \"Discharge at 64 A for 5 minutes\",\n            ],\n            period=\"10 seconds\",\n        )\n        I_app = 64\n        self.long_experiment = pybamm.Experiment(\n            [\n                f\"Charge at {I_app} A for 20 minutes\",\n                \"Rest for 15 minutes\",\n                f\"Discharge at {I_app} A for 20 minutes\",\n                \"Rest for 30 minutes\",\n            ]\n            * 3,\n            period=\"10 seconds\",\n        )",
+        "code": "class LargePack:\n    def time_discharge_1cpu(self):\n        _ = lp.solve(\n            netlist=self.netlist.copy(),\n            parameter_values=self.parameter_values.copy(),\n            experiment=self.experiment,\n            initial_soc=0.5,\n            nproc=1,\n        )\n\n    def setup(self):\n        self.netlist = lp.setup_circuit(Np=64, Ns=10, Rb=1e-4, Rc=1e-2)\n        self.parameter_values = pybamm.ParameterValues(\"Chen2020\")\n        self.experiment = pybamm.Experiment(\n            [\n                \"Discharge at 64 A for 5 minutes\",\n            ],\n            period=\"10 seconds\",\n        )\n        I_app = 64\n        self.long_experiment = pybamm.Experiment(\n            [\n                f\"Charge at {I_app} A for 20 minutes\",\n                \"Rest for 15 minutes\",\n                f\"Discharge at {I_app} A for 20 minutes\",\n                \"Rest for 30 minutes\",\n            ]\n            * 3,\n            period=\"10 seconds\",\n        )",
         "min_run_count": 2,
         "name": "benchmarks.LargePack.time_discharge_1cpu",
         "number": 0,
@@ -28,11 +28,11 @@
         "timeout": 600,
         "type": "time",
         "unit": "seconds",
-        "version": "5a2756f3bebd1d0e37e074eb74a0bca10c9ce960ed21316ad26e9583a10353f8",
+        "version": "4e674c106cfc4edfb9af4d8b507241633af8481d71030a6afcaacc7d7dac9ed1",
         "warmup_time": -1
     },
     "benchmarks.LargePack.time_discharge_2cpu": {
-        "code": "class LargePack:\n    def time_discharge_2cpu(self):\n        _ = lp.solve(\n            netlist=self.netlist.copy(),\n            parameter_values=self.parameter_values.copy(),\n            experiment=self.experiment,\n            initial_soc=0.5,\n            nproc=2,\n        )\n\n    def setup(self):\n        self.netlist = lp.setup_circuit(Np=64, Ns=10, Rb=1e-4, Rc=1e-2)\n        chemistry = pybamm.parameter_sets.Chen2020\n        self.parameter_values = pybamm.ParameterValues(chemistry=chemistry)\n        self.experiment = pybamm.Experiment(\n            [\n                \"Discharge at 64 A for 5 minutes\",\n            ],\n            period=\"10 seconds\",\n        )\n        I_app = 64\n        self.long_experiment = pybamm.Experiment(\n            [\n                f\"Charge at {I_app} A for 20 minutes\",\n                \"Rest for 15 minutes\",\n                f\"Discharge at {I_app} A for 20 minutes\",\n                \"Rest for 30 minutes\",\n            ]\n            * 3,\n            period=\"10 seconds\",\n        )",
+        "code": "class LargePack:\n    def time_discharge_2cpu(self):\n        _ = lp.solve(\n            netlist=self.netlist.copy(),\n            parameter_values=self.parameter_values.copy(),\n            experiment=self.experiment,\n            initial_soc=0.5,\n            nproc=2,\n        )\n\n    def setup(self):\n        self.netlist = lp.setup_circuit(Np=64, Ns=10, Rb=1e-4, Rc=1e-2)\n        self.parameter_values = pybamm.ParameterValues(\"Chen2020\")\n        self.experiment = pybamm.Experiment(\n            [\n                \"Discharge at 64 A for 5 minutes\",\n            ],\n            period=\"10 seconds\",\n        )\n        I_app = 64\n        self.long_experiment = pybamm.Experiment(\n            [\n                f\"Charge at {I_app} A for 20 minutes\",\n                \"Rest for 15 minutes\",\n                f\"Discharge at {I_app} A for 20 minutes\",\n                \"Rest for 30 minutes\",\n            ]\n            * 3,\n            period=\"10 seconds\",\n        )",
         "min_run_count": 2,
         "name": "benchmarks.LargePack.time_discharge_2cpu",
         "number": 0,
@@ -44,11 +44,11 @@
         "timeout": 600,
         "type": "time",
         "unit": "seconds",
-        "version": "f19047f1071beb2e16eb288e9a2cb14f4b91fca1dd10a3dbe5c68078a908886d",
+        "version": "5d0c4cd1e591d407e3023f9d5e68b566cf33622cc8ddf507e475de2cc791c2a0",
         "warmup_time": -1
     },
     "benchmarks.LargePack.time_long_cycle_2cpu": {
-        "code": "class LargePack:\n    def time_long_cycle_2cpu(self):\n        _ = lp.solve(\n            netlist=self.netlist.copy(),\n            parameter_values=self.parameter_values.copy(),\n            experiment=self.long_experiment,\n            initial_soc=0.5,\n            nproc=2,\n        )\n\n    def setup(self):\n        self.netlist = lp.setup_circuit(Np=64, Ns=10, Rb=1e-4, Rc=1e-2)\n        chemistry = pybamm.parameter_sets.Chen2020\n        self.parameter_values = pybamm.ParameterValues(chemistry=chemistry)\n        self.experiment = pybamm.Experiment(\n            [\n                \"Discharge at 64 A for 5 minutes\",\n            ],\n            period=\"10 seconds\",\n        )\n        I_app = 64\n        self.long_experiment = pybamm.Experiment(\n            [\n                f\"Charge at {I_app} A for 20 minutes\",\n                \"Rest for 15 minutes\",\n                f\"Discharge at {I_app} A for 20 minutes\",\n                \"Rest for 30 minutes\",\n            ]\n            * 3,\n            period=\"10 seconds\",\n        )",
+        "code": "class LargePack:\n    def time_long_cycle_2cpu(self):\n        _ = lp.solve(\n            netlist=self.netlist.copy(),\n            parameter_values=self.parameter_values.copy(),\n            experiment=self.long_experiment,\n            initial_soc=0.5,\n            nproc=2,\n        )\n\n    def setup(self):\n        self.netlist = lp.setup_circuit(Np=64, Ns=10, Rb=1e-4, Rc=1e-2)\n        self.parameter_values = pybamm.ParameterValues(\"Chen2020\")\n        self.experiment = pybamm.Experiment(\n            [\n                \"Discharge at 64 A for 5 minutes\",\n            ],\n            period=\"10 seconds\",\n        )\n        I_app = 64\n        self.long_experiment = pybamm.Experiment(\n            [\n                f\"Charge at {I_app} A for 20 minutes\",\n                \"Rest for 15 minutes\",\n                f\"Discharge at {I_app} A for 20 minutes\",\n                \"Rest for 30 minutes\",\n            ]\n            * 3,\n            period=\"10 seconds\",\n        )",
         "min_run_count": 2,
         "name": "benchmarks.LargePack.time_long_cycle_2cpu",
         "number": 0,
@@ -60,11 +60,11 @@
         "timeout": 600,
         "type": "time",
         "unit": "seconds",
-        "version": "886173c7f314c25dcd319de5a644065b170ce4fe889082fb1ebcead737f35d99",
+        "version": "1b5066ca752a464517f51c422ee3c5af277eecffe4e6e5c61c4373f8142e38b1",
         "warmup_time": -1
     },
     "benchmarks.MediumPack.time_discharge_1cpu": {
-        "code": "class MediumPack:\n    def time_discharge_1cpu(self):\n        _ = lp.solve(\n            netlist=self.netlist.copy(),\n            parameter_values=self.parameter_values.copy(),\n            experiment=self.experiment,\n            initial_soc=0.5,\n            nproc=1,\n        )\n\n    def setup(self):\n        self.netlist = lp.setup_circuit(Np=32, Ns=10, Rb=1e-4, Rc=1e-2)\n        chemistry = pybamm.parameter_sets.Chen2020\n        self.parameter_values = pybamm.ParameterValues(chemistry=chemistry)\n        self.experiment = pybamm.Experiment(\n            [\n                \"Discharge at 32 A for 5 minutes\",\n            ],\n            period=\"10 seconds\",\n        )",
+        "code": "class MediumPack:\n    def time_discharge_1cpu(self):\n        _ = lp.solve(\n            netlist=self.netlist.copy(),\n            parameter_values=self.parameter_values.copy(),\n            experiment=self.experiment,\n            initial_soc=0.5,\n            nproc=1,\n        )\n\n    def setup(self):\n        self.netlist = lp.setup_circuit(Np=32, Ns=10, Rb=1e-4, Rc=1e-2)\n        self.parameter_values = pybamm.ParameterValues(\"Chen2020\")\n        self.experiment = pybamm.Experiment(\n            [\n                \"Discharge at 32 A for 5 minutes\",\n            ],\n            period=\"10 seconds\",\n        )",
         "min_run_count": 2,
         "name": "benchmarks.MediumPack.time_discharge_1cpu",
         "number": 0,
@@ -76,11 +76,11 @@
         "timeout": 120,
         "type": "time",
         "unit": "seconds",
-        "version": "b8aa492ab12a8aba37625a5c0deae1c109def02877ec79681d996a7f77cc595c",
+        "version": "de29c1a0f782a88f2bd963acf36991bb6bac5ec83c08663ba0197efd0331330f",
         "warmup_time": -1
     },
     "benchmarks.MediumPack.time_discharge_2cpu": {
-        "code": "class MediumPack:\n    def time_discharge_2cpu(self):\n        _ = lp.solve(\n            netlist=self.netlist.copy(),\n            parameter_values=self.parameter_values.copy(),\n            experiment=self.experiment,\n            initial_soc=0.5,\n            nproc=2,\n        )\n\n    def setup(self):\n        self.netlist = lp.setup_circuit(Np=32, Ns=10, Rb=1e-4, Rc=1e-2)\n        chemistry = pybamm.parameter_sets.Chen2020\n        self.parameter_values = pybamm.ParameterValues(chemistry=chemistry)\n        self.experiment = pybamm.Experiment(\n            [\n                \"Discharge at 32 A for 5 minutes\",\n            ],\n            period=\"10 seconds\",\n        )",
+        "code": "class MediumPack:\n    def time_discharge_2cpu(self):\n        _ = lp.solve(\n            netlist=self.netlist.copy(),\n            parameter_values=self.parameter_values.copy(),\n            experiment=self.experiment,\n            initial_soc=0.5,\n            nproc=2,\n        )\n\n    def setup(self):\n        self.netlist = lp.setup_circuit(Np=32, Ns=10, Rb=1e-4, Rc=1e-2)\n        self.parameter_values = pybamm.ParameterValues(\"Chen2020\")\n        self.experiment = pybamm.Experiment(\n            [\n                \"Discharge at 32 A for 5 minutes\",\n            ],\n            period=\"10 seconds\",\n        )",
         "min_run_count": 2,
         "name": "benchmarks.MediumPack.time_discharge_2cpu",
         "number": 0,
@@ -92,11 +92,11 @@
         "timeout": 120,
         "type": "time",
         "unit": "seconds",
-        "version": "850ba37f55027bfd05992888284a51f0f34d93dcdd99053c957faf34e763a327",
+        "version": "ca5f8ca52399e330f7eefe60a32fac53d43add789f1a2509e802c8fc50657f30",
         "warmup_time": -1
     },
     "benchmarks.SmallPack.time_discharge_1cpu": {
-        "code": "class SmallPack:\n    def time_discharge_1cpu(self):\n        _ = lp.solve(\n            netlist=self.netlist.copy(),\n            parameter_values=self.parameter_values.copy(),\n            experiment=self.experiment,\n            initial_soc=0.5,\n            nproc=1,\n        )\n\n    def setup(self):\n        self.netlist = lp.setup_circuit(Np=2, Ns=1, Rb=1e-4, Rc=1e-2)\n        chemistry = pybamm.parameter_sets.Chen2020\n        self.parameter_values = pybamm.ParameterValues(chemistry=chemistry)\n        self.experiment = pybamm.Experiment(\n            [\n                \"Discharge at 2 A for 5 minutes\",\n            ],\n            period=\"10 seconds\",\n        )",
+        "code": "class SmallPack:\n    def time_discharge_1cpu(self):\n        _ = lp.solve(\n            netlist=self.netlist.copy(),\n            parameter_values=self.parameter_values.copy(),\n            experiment=self.experiment,\n            initial_soc=0.5,\n            nproc=1,\n        )\n\n    def setup(self):\n        self.netlist = lp.setup_circuit(Np=2, Ns=1, Rb=1e-4, Rc=1e-2)\n        self.parameter_values = pybamm.ParameterValues(\"Chen2020\")\n        self.experiment = pybamm.Experiment(\n            [\n                \"Discharge at 2 A for 5 minutes\",\n            ],\n            period=\"10 seconds\",\n        )",
         "min_run_count": 2,
         "name": "benchmarks.SmallPack.time_discharge_1cpu",
         "number": 0,
@@ -108,11 +108,11 @@
         "timeout": 60,
         "type": "time",
         "unit": "seconds",
-        "version": "07ba66cea19ff93b549ef21d8e3a0e9282b00d59822764eb1b4ac75f74a0d9c9",
+        "version": "0bec0662d02928ab7e468e64538ba8be92e71786f746556e2ba67cf2f9d73a4f",
         "warmup_time": -1
     },
     "benchmarks.SmallPack.time_discharge_2cpu": {
-        "code": "class SmallPack:\n    def time_discharge_2cpu(self):\n        _ = lp.solve(\n            netlist=self.netlist.copy(),\n            parameter_values=self.parameter_values.copy(),\n            experiment=self.experiment,\n            initial_soc=0.5,\n            nproc=2,\n        )\n\n    def setup(self):\n        self.netlist = lp.setup_circuit(Np=2, Ns=1, Rb=1e-4, Rc=1e-2)\n        chemistry = pybamm.parameter_sets.Chen2020\n        self.parameter_values = pybamm.ParameterValues(chemistry=chemistry)\n        self.experiment = pybamm.Experiment(\n            [\n                \"Discharge at 2 A for 5 minutes\",\n            ],\n            period=\"10 seconds\",\n        )",
+        "code": "class SmallPack:\n    def time_discharge_2cpu(self):\n        _ = lp.solve(\n            netlist=self.netlist.copy(),\n            parameter_values=self.parameter_values.copy(),\n            experiment=self.experiment,\n            initial_soc=0.5,\n            nproc=2,\n        )\n\n    def setup(self):\n        self.netlist = lp.setup_circuit(Np=2, Ns=1, Rb=1e-4, Rc=1e-2)\n        self.parameter_values = pybamm.ParameterValues(\"Chen2020\")\n        self.experiment = pybamm.Experiment(\n            [\n                \"Discharge at 2 A for 5 minutes\",\n            ],\n            period=\"10 seconds\",\n        )",
         "min_run_count": 2,
         "name": "benchmarks.SmallPack.time_discharge_2cpu",
         "number": 0,
@@ -124,7 +124,7 @@
         "timeout": 60,
         "type": "time",
         "unit": "seconds",
-        "version": "7d2cd2d77443c50c3db4ed879be8a6cc5ece070ec744f5ce5778304a5f2f1f27",
+        "version": "33a8e36cf8ba3e95d90687972b706f401442f8d31ab7f0bfc4e1a46e5471a398",
         "warmup_time": -1
     },
     "version": 2
